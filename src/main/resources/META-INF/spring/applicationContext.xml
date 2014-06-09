@@ -35,5 +35,7 @@
 
 
     <tx:annotation-driven/>
+    
+    <bean id="person" class="id.ac.uad.tot.model.Person"/>
 
 </beans>
