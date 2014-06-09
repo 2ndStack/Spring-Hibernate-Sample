@@ -36,6 +36,8 @@
 
     <tx:annotation-driven/>
     
-    <bean id="person" class="id.ac.uad.tot.model.Person"/>
+    <bean id="person" class="id.ac.uad.tot.model.Person"
+        p:id="9" p:jobTitle="Hore" p:name="Jasoet"
+    />
 
 </beans>
