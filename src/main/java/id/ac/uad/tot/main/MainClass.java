@@ -18,10 +18,6 @@ public class MainClass {
     public static void main(String[] args) {
         ApplicationContext applicationContext = 
                 ApplicationContextProvider.getInstance().getApplicationContext();
-        
-        Person p = applicationContext.getBean("person",Person.class);
-        
-        System.out.println(p);
-        
+
     }
 }
