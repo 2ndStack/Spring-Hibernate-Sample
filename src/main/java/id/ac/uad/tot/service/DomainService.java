@@ -36,6 +36,11 @@ public class DomainService {
         return entityManager.createQuery("SELECT o FROM TripType o", TripType.class).getResultList();
     }
 
+    public List<TripType> findAllTripTypeByName(String name) {
+        return entityManager.createQuery("SELECT o FROM TripType o WHERE o.name LIKE :name", TripType.class)
+                .setParameter("name", name).getResultList();
+    }
+
     @Transactional
     public void saveTrip(Trip trip) {
         entityManager.persist(trip);
@@ -43,6 +48,17 @@ public class DomainService {
 
     public List<Trip> findAllTrip() {
         return entityManager.createQuery("SELECT o FROM Trip o", Trip.class).getResultList();
+    }
+
+    public List<Trip> findAllTripByTripType(TripType type) {
+        return entityManager.createQuery("SELECT o FROM Trip o WHERE o.tripType=:tripType", Trip.class)
+                .setParameter("tripType", type).getResultList();
+    }
+
+    public List<Trip> findAllTripByPersonNameLike(String name) {
+        return entityManager.createQuery("SELECT o FROM Trip o WHERE o.person.name LIKE :name", Trip.class)
+                .setParameter("name", name).getResultList();
+
     }
 
 }

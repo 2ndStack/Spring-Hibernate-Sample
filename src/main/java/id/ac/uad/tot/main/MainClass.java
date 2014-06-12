@@ -35,6 +35,8 @@ public class MainClass {
 
         List<TripType> result = domainService.findAllTripType();
 
+        domainService.findAllTripByPersonNameLike("Joko");
+
         System.out.println(result);
     }
 }
