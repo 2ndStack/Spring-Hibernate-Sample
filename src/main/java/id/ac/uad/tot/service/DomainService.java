@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -26,6 +27,7 @@ public class DomainService {
     @PersistenceContext
     private EntityManager entityManager;
 
+    @Transactional
     public void saveTripType(TripType tripType) {
         entityManager.persist(tripType);
     }
@@ -34,6 +36,7 @@ public class DomainService {
         return entityManager.createQuery("SELECT o FROM TripType o", TripType.class).getResultList();
     }
 
+    @Transactional
     public void saveTrip(Trip trip) {
         entityManager.persist(trip);
     }
