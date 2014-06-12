@@ -13,6 +13,7 @@ import org.springframework.context.ApplicationContext;
 
 import javax.persistence.EntityManager;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author jasoet
@@ -32,6 +33,8 @@ public class MainClass {
         domainService.saveTripType(tt);
 
 
+        List<TripType> result = domainService.findAllTripType();
 
+        System.out.println(result);
     }
 }
