@@ -15,7 +15,7 @@
 
     <context:property-placeholder properties-ref="databaseProperties" order="1" ignore-unresolvable="true"/>
 
-    <!--<context:component-scan base-package="sg.com.netxcel.smartboost.*.service"/>-->
+    <context:component-scan base-package="id.ac.uad.*.service"/>
 
     <!-- BoneCP configuration -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
