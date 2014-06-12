@@ -6,10 +6,13 @@
 
 package id.ac.uad.tot.main;
 
+import id.ac.uad.tot.domain.TripType;
 import id.ac.uad.tot.provider.ApplicationContextProvider;
+import id.ac.uad.tot.service.DomainService;
 import org.springframework.context.ApplicationContext;
 
 import javax.persistence.EntityManager;
+import java.util.Date;
 
 /**
  * @author jasoet
@@ -19,6 +22,16 @@ public class MainClass {
         ApplicationContext applicationContext =
                 ApplicationContextProvider.getInstance().getApplicationContext();
 
-        Person person
+        DomainService domainService = applicationContext.getBean("domainService", DomainService.class);
+
+        TripType tt = new TripType();
+        tt.setName("Plesir");
+        tt.setDescription("Jalan Jalan Sore");
+        tt.setLastUpdated(new Date());
+
+        domainService.saveTripType(tt);
+
+
+
     }
 }

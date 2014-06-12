@@ -20,8 +20,8 @@ import java.util.List;
  * [at]jasoet
  */
 
-@Service
-public class TripService {
+@Service(value = "domainService")
+public class DomainService {
 
     @PersistenceContext
     private EntityManager entityManager;
