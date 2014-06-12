@@ -16,13 +16,14 @@
         <mysql.version>5.1.18</mysql.version>
         <postgresql.version>9.1-901.jdbc4</postgresql.version>
         <javassist.version>3.12.1.GA</javassist.version>
+        <dbcp.version>1.4</dbcp.version>
         <groovy.version>1.8.4</groovy.version>
         <junit.version>4.10</junit.version>
         <dbunit.version>2.4.8</dbunit.version>
         <quartz.version>2.2.0</quartz.version>
         <servlet.version>2.5</servlet.version>
         <commons.collection.version>3.2.1</commons.collection.version>
-        <commons.lang3.version>3.1</commons.lang3.version>
+        <commons.lang3.version>3.3.2</commons.lang3.version>
         <commons-fileupload.version>1.2.2</commons-fileupload.version>
         <commons-io.version>2.1</commons-io.version>
         <commons-logging.version>1.1.1</commons-logging.version>
@@ -42,7 +43,6 @@
         <super-csv.version>2.1.0</super-csv.version>
     </properties>
     <dependencies>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
@@ -54,7 +54,6 @@
             <artifactId>spring-oxm</artifactId>
             <version>${org.springframework.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -69,10 +68,7 @@
                     <groupId>org.jboss.logging</groupId>
                 </exclusion>
             </exclusions>
-
-
         </dependency>
-
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
@@ -102,7 +98,7 @@
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
-            <version>1.4</version>
+            <version>${dbcp.version}</version>
         </dependency>
 
         <dependency>
@@ -123,7 +119,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <version>${org.springframework.version}</version>
-
         </dependency>
 
         <dependency>

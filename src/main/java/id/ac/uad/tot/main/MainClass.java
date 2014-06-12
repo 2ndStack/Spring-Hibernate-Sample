@@ -6,18 +6,17 @@
 
 package id.ac.uad.tot.main;
 
-import id.ac.uad.tot.model.Person;
 import id.ac.uad.tot.provider.ApplicationContextProvider;
 import org.springframework.context.ApplicationContext;
 
+import javax.persistence.EntityManager;
+
 /**
- *
  * @author jasoet
  */
 public class MainClass {
     public static void main(String[] args) {
-        ApplicationContext applicationContext = 
+        ApplicationContext applicationContext =
                 ApplicationContextProvider.getInstance().getApplicationContext();
-
     }
 }
