@@ -1,0 +1,17 @@
+# INI ADALAH REPOSITORY SAMPLE
+## Project Menggunakan Spring Hibernate
+
+##Daftar Perintah Git Penting
+
+`git branch` #untuk melihat branch, current branch diberi tanda asterisk (*)
+`git remote -v` #untuk melihat remote
+`git add .` #untuk memindahkan working files ke staging
+`git commit -am "[komentar]"` #untuk melakukan commit (simpan) staging ke git
+`git checkout -b [namaBranch]` #untuk membuat branch baru (apabila tidak ada)
+`git checkout [namaBranch]` #untuk berpindah ke branch lain
+`git merge --no-ff [branchLain]` #untuk menggabungkan perubahan di `branchLain` ke `currentBranch`
+`git log` #untuk melihat daftar commit
+`git status` #untuk melihat status git sekarang
+`git remote add [namaRemote] [urlRemote]` #untuk menambah remote sesuai `namaRemote` dan merujuk ke `urlRemote`
+`git pull origin master` #untuk mengambil perubahan yang ada pada remote `origin` dengan branch `master` dan langsung di merge ke current branch
+`git fetch upstream` #untuk mengambil perubahan pada remote `upstream`, tidak langsung di merge.
