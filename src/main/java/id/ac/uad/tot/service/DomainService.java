@@ -55,10 +55,9 @@ public class DomainService {
                 .setParameter("tripType", type).getResultList();
     }
 
-    public List<Trip> findAllTripByPersonNameLike(String name) {
-        return entityManager.createQuery("SELECT o FROM Trip o WHERE o.person.name LIKE :name", Trip.class)
-                .setParameter("name", name).getResultList();
-
+    public List<Trip> findAllTripByTripTypeName(String name) {
+        return entityManager.createQuery("SELECT o FROM Trip o WHERE o.tripType.name LIKE :tripType", Trip.class)
+                .setParameter("tripType",name).getResultList();
     }
 
 }
