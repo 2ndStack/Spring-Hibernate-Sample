@@ -34,7 +34,6 @@ public class Trip {
     @SequenceGenerator(name = "tripSequence", sequenceName = "TRIP_SEQ")
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "tripSequence")
     private Integer id;
-    @JoinColumn(name = "PERSON_ID", nullable = false)
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "PERSON_TRIP", joinColumns = @JoinColumn(name = "TRIP_ID", unique = false), inverseJoinColumns = @JoinColumn(name = "PERSON_ID", unique = false))
     private List<Person> persons;
