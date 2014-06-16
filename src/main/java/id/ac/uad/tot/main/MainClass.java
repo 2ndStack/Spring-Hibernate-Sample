@@ -32,6 +32,9 @@ public class MainClass {
 
         domainService.saveTripType(tt);
 
+        tt = domainService.findTripTypeById(tt.getId());
+        tt.setName("Oke Oke Oke");
+        domainService.saveTripType(tt);
 
         List<TripType> result = domainService.findAllTripType();
 
