@@ -32,6 +32,16 @@ public class DomainService {
         entityManager.persist(tripType);
     }
 
+    public TripType findTripTypeById(Integer id) {
+        return entityManager.find(TripType.class, id);
+    }
+
+    @Transactional
+    public void removeTripTypeById(Integer id){
+        TripType tt= entityManager.find(TripType.class, id);
+        entityManager.remove(tt);
+    }
+
     public List<TripType> findAllTripType() {
         return entityManager.createQuery("SELECT o FROM TripType o", TripType.class).getResultList();
     }
@@ -57,7 +67,7 @@ public class DomainService {
 
     public List<Trip> findAllTripByTripTypeName(String name) {
         return entityManager.createQuery("SELECT o FROM Trip o WHERE o.tripType.name LIKE :tripType", Trip.class)
-                .setParameter("tripType",name).getResultList();
+                .setParameter("tripType", name).getResultList();
     }
 
 }
