@@ -2,10 +2,10 @@ package id.ac.uad.tot.service;
 
 import id.ac.uad.tot.domain.Trip;
 import id.ac.uad.tot.domain.TripType;
+import id.ac.uad.tot.repository.TripTypeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -24,24 +24,23 @@ import java.util.List;
 @Service(value = "domainService")
 public class DomainService {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    @Autowired
+    private TripTypeRepository tripTypeRepository;
 
     @Transactional
     public void saveTripType(TripType tripType) {
-        entityManager.persist(tripType);
+        tripTypeRepository.save(tripType);
     }
 
-    public List<TripType> findAllTripType() {
-        return entityManager.createQuery("SELECT o FROM TripType o", TripType.class).getResultList();
+    public Iterable<TripType> findAllTripType() {
+        return tripTypeRepository.findAll();
     }
 
     public List<TripType> findAllTripTypeByName(String name) {
-        return entityManager.createQuery("SELECT o FROM TripType o WHERE o.name LIKE :name", TripType.class)
-                .setParameter("name", name).getResultList();
+        return tripTypeRepository.findByName(name);
     }
 
-    @Transactional
+  /*  @Transactional
     public void saveTrip(Trip trip) {
         entityManager.persist(trip);
     }
@@ -57,7 +56,7 @@ public class DomainService {
 
     public List<Trip> findAllTripByTripTypeName(String name) {
         return entityManager.createQuery("SELECT o FROM Trip o WHERE o.tripType.name LIKE :tripType", Trip.class)
-                .setParameter("tripType",name).getResultList();
-    }
+                .setParameter("tripType", name).getResultList();
+    }*/
 
 }
