@@ -8,16 +8,20 @@ package id.ac.uad.tot.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author jasoet
@@ -30,9 +34,10 @@ public class Trip {
     @SequenceGenerator(name = "tripSequence", sequenceName = "TRIP_SEQ")
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "tripSequence")
     private Integer id;
-    @ManyToOne
     @JoinColumn(name = "PERSON_ID", nullable = false)
-    private Person person;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "PERSON_TRIP", joinColumns = @JoinColumn(name = "TRIP_ID", unique = false), inverseJoinColumns = @JoinColumn(name = "PERSON_ID", unique = false))
+    private List<Person> persons;
     @Column(name = "DEP_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date depDate;
@@ -55,12 +60,12 @@ public class Trip {
         this.id = id;
     }
 
-    public Person getPerson() {
-        return person;
+    public List<Person> getPersons() {
+        return persons;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setPersons(List<Person> persons) {
+        this.persons = persons;
     }
 
     public Date getDepDate() {
@@ -107,7 +112,7 @@ public class Trip {
     public String toString() {
         final StringBuilder sb = new StringBuilder("Trip{");
         sb.append("id=").append(id);
-        sb.append(", person=").append(person);
+        sb.append(", person=").append(persons);
         sb.append(", depDate=").append(depDate);
         sb.append(", depCity='").append(depCity).append('\'');
         sb.append(", destCity='").append(destCity).append('\'');
