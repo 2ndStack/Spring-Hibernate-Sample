@@ -8,6 +8,7 @@ package id.ac.uad.tot.main;
 
 import id.ac.uad.tot.domain.TripType;
 import id.ac.uad.tot.provider.ApplicationContextProvider;
+import id.ac.uad.tot.repository.TripTypeRepository;
 import id.ac.uad.tot.service.DomainService;
 import org.springframework.context.ApplicationContext;
 
@@ -25,6 +26,8 @@ public class MainClass {
 
         DomainService domainService = applicationContext.getBean("domainService", DomainService.class);
 
+        TripTypeRepository tripTypeRepository = applicationContext.getBean("tripTypeRepository", TripTypeRepository.class);
+
         TripType tt = new TripType();
         tt.setName("Plesir");
         tt.setDescription("Jalan Jalan Sore");
@@ -32,13 +35,13 @@ public class MainClass {
 
         domainService.saveTripType(tt);
 
-        tt = domainService.findTripTypeById(tt.getId());
+        //tt = domainService.findTripTypeById(tt.getId());
         tt.setName("Oke Oke Oke");
         domainService.saveTripType(tt);
 
-        List<TripType> result = domainService.findAllTripType();
+        //List<TripType> result = domainService.findAllTripType();
 
 
-        System.out.println(result);
+        //System.out.println(result);
     }
 }
